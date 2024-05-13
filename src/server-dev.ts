@@ -5,10 +5,10 @@ const app = express();
 
 enum ServerConfig {
   PORT = 8080,
-  DIST = "C:/temp/Projects/src-joaovictoroliveira-portal/dist",
+  DIST = "C:/temp/Projects/src-joaovictoroliveira-portal/dist/app",
 }
 
-app.use("/", express.static(ServerConfig.DIST + "/app"));
+app.use("/", express.static(ServerConfig.DIST));
 
 app.use("", (req, res, next) => {
   res.sendFile(ServerConfig.DIST + "/index.html");

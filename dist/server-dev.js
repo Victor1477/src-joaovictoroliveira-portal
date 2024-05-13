@@ -9,9 +9,9 @@ const app = (0, express_1.default)();
 var ServerConfig;
 (function (ServerConfig) {
     ServerConfig[ServerConfig["PORT"] = 8080] = "PORT";
-    ServerConfig["DIST"] = "C:/temp/Projects/src-joaovictoroliveira-portal/dist";
+    ServerConfig["DIST"] = "C:/temp/Projects/src-joaovictoroliveira-portal/dist/app";
 })(ServerConfig || (ServerConfig = {}));
-app.use("/", express_1.default.static(ServerConfig.DIST + "/app"));
+app.use("/", express_1.default.static(ServerConfig.DIST));
 app.use("", (req, res, next) => {
     res.sendFile(ServerConfig.DIST + "/index.html");
 });
