@@ -24,3 +24,12 @@ function closeMobileNav() {
   sidebar.classList.remove("open");
   backdrop.classList.remove("open");
 }
+
+const list = document.querySelector(".sidebar__navigation");
+
+for (let i = 2; i < 51; i++) {
+  const item = document.createElement("li");
+
+  item.textContent = "Item " + i;
+  list?.appendChild(item);
+}
