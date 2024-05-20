@@ -27,3 +27,44 @@ for (let i = 2; i < 51; i++) {
     item.textContent = "Item " + i;
     list?.appendChild(item);
 }
+//letter Animation
+function animateText() {
+    const letter = document.querySelector(".letter");
+    const str1 = "Joao Oliveira";
+    const str2 = "Software Developer";
+    const bar = "|";
+    let strIndex = 0;
+    write();
+    let str = str1;
+    function write() {
+        const writeInterval = setInterval(() => {
+            if (strIndex <= str.length) {
+                letter.textContent = str.substring(0, strIndex) + bar;
+                strIndex++;
+                return;
+            }
+            clearInterval(writeInterval);
+            setTimeout(() => {
+                erase();
+            }, 250);
+        }, 250);
+    }
+    function erase() {
+        const eraseInterval = setInterval(() => {
+            if (strIndex >= 0) {
+                letter.textContent = str.substring(0, strIndex) + bar;
+                strIndex--;
+                return;
+            }
+            clearInterval(eraseInterval);
+            if (str === str1) {
+                str = str2;
+            }
+            else {
+                str = str1;
+            }
+            write();
+        }, 100);
+    }
+}
+animateText();
