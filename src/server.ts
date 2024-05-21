@@ -4,7 +4,7 @@ console.clear();
 const app = express();
 
 enum ServerConfig {
-  PORT = 80,
+  PORT = 8080,
   DIST = "/opt/projects/src-joaovictoroliveira-portal/dist/app",
 }
 

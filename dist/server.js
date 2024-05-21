@@ -8,7 +8,7 @@ console.clear();
 const app = (0, express_1.default)();
 var ServerConfig;
 (function (ServerConfig) {
-    ServerConfig[ServerConfig["PORT"] = 80] = "PORT";
+    ServerConfig[ServerConfig["PORT"] = 8080] = "PORT";
     ServerConfig["DIST"] = "/opt/projects/src-joaovictoroliveira-portal/dist/app";
 })(ServerConfig || (ServerConfig = {}));
 app.use("/", express_1.default.static(ServerConfig.DIST));
