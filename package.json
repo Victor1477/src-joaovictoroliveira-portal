@@ -5,7 +5,7 @@
   "main": "dist/server.js",
   "scripts": {
     "build": "tsc --watch",
-    "server": "tsc && node dist/server.js"
+    "server": "tsc && nodemon dist/server.js"
   },
   "author": "Joao Oliveira",
   "license": "ISC",
