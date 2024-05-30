@@ -3,7 +3,7 @@ export class Logger {
 
   constructor() {
     const date = new Date();
-    date.setHours(date.getHours() - date.getTimezoneOffset() / 60);
+    date.setHours(date.getHours() - 3);
     this.results = {
       startDate: date.toISOString(),
       requestCounter: {},
