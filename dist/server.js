@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const logger_1 = require("./app/logger");
+const fs_1 = require("fs");
 console.clear();
 const app = (0, express_1.default)();
 const logger = new logger_1.Logger();
@@ -19,6 +20,16 @@ app.use("/application/logs", (req, res, next) => {
 });
 app.use("/", (req, res, next) => {
     logger.plus(req.originalUrl);
+    const log = {
+        url: req.originalUrl,
+        ip: req.ip,
+        method: req.method,
+        body: req.body,
+        query: req.query,
+        headers: req.headers,
+        params: req.params,
+    };
+    (0, fs_1.appendFile)("./logs.txt", JSON.stringify(log) + "\n", () => { });
     next();
 });
 app.use("/", express_1.default.static(ServerConfig.DIST));
