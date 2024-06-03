@@ -18,8 +18,11 @@ app.use("/application/logs", (req, res, next) => {
 
 app.use("/", (req, res, next) => {
   logger.plus(req.originalUrl);
+  const date = new Date();
+  date.setHours(date.getHours() - 3);
   const log = {
     url: req.originalUrl,
+    date: date.toISOString(),
     ip: req.ip,
     method: req.method,
     body: req.body,
