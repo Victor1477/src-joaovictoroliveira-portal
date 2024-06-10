@@ -25,12 +25,7 @@ app.use("/", (req, res, next) => {
     const log = {
         url: req.originalUrl,
         date: date.toISOString(),
-        ip: req.ip,
         method: req.method,
-        body: req.body,
-        query: req.query,
-        headers: req.headers,
-        params: req.params,
     };
     (0, fs_1.appendFile)("./logs.txt", JSON.stringify(log) + "\n", () => { });
     next();
