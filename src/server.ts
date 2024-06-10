@@ -21,8 +21,8 @@ app.use("/", (req, res, next) => {
   const date = new Date();
   date.setHours(date.getHours() - 3);
   const log = {
-    url: req.originalUrl,
     date: date.toISOString(),
+    url: req.originalUrl,
     method: req.method,
   };
   appendFile("./logs.txt", JSON.stringify(log) + "\n", () => {});
