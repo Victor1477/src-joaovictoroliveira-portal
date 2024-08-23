@@ -1,0 +1,139 @@
+@import url("fonts.css");
+
+* {
+  box-sizing: border-box;
+  font-family: Roboto;
+  padding: 0;
+  margin: 0;
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 0.8rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(30, 30, 30);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(70, 70, 70);
+  border-radius: 5px;
+}
+
+.backdrop {
+  display: none;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+  background: #00000080;
+}
+
+.content-wrapper {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: 3.5rem auto;
+}
+
+.main-header {
+  background: rgb(40, 40, 40);
+  display: flex;
+  align-items: center;
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 3rem;
+  margin-left: 1rem;
+}
+
+.mobile-nav__bar {
+  width: 100%;
+  height: 0.4rem;
+  background: white;
+  border-radius: 3px;
+}
+
+.sidebar {
+  display: none;
+  position: fixed;
+  height: 100%;
+  width: 80%;
+  z-index: 200;
+  background: rgb(50, 50, 50);
+}
+
+.sidebar__navigation {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  height: 30rem;
+  list-style: none;
+  padding: 1rem;
+  overflow-y: scroll;
+}
+
+.sidebar__navigation > li {
+  padding: 1rem;
+  position: relative;
+  width: 100%;
+  background-color: rgb(60, 60, 60);
+  min-height: 3.75rem;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.sidebar__navigation > li:hover,
+.sidebar__navigation > li:active {
+  background: rgb(100, 100, 100);
+  font-weight: bold;
+}
+
+.sidebar__navigation > li > .navigation-link {
+  text-decoration: none;
+  color: inherit;
+  position: absolute;
+  align-content: center;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.main-content {
+  background: rgb(60, 60, 60);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.open {
+  display: block;
+}
+
+@media (min-width: 60rem) {
+  .content-wrapper {
+    grid-template-columns: 1fr 3fr;
+  }
+
+  .mobile-nav {
+    display: none;
+  }
+
+  .sidebar {
+    display: block;
+    position: relative;
+    width: 100%;
+  }
+
+  .main-header,
+  .main-footer {
+    grid-column: span 2;
+  }
+}
