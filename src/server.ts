@@ -31,6 +31,10 @@ app.use("/", (req, res, next) => {
 
 app.use("/", express.static(ServerConfig.DIST));
 
+app.use("/taskmanagement/**", (req, res, next) => {
+  res.redirect("/taskmanagement");
+});
+
 app.use("", (req, res, next) => {
   res.sendFile(ServerConfig.DIST + "/index.html");
 });
